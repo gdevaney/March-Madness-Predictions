@@ -17,22 +17,14 @@ I pulled in data from www.kaggle.com/competitions/march-machine-learning-mania-2
 ## Folders
 ### Data
 
-#### tourney_games: 
-- historical results (winning score/losing score) for all previous tournament games
-#### season_games: 
-- historical results (winning score/losing score) for all previous regular season games
-#### tourney_games_detail: 
-- historical in-depth game statistics (field goal pct., 3 point pct., etc.) for all previous tournament games
-#### season_games_detail: 
-- historical in-depth game statistics (field goal pct., 3 point pct., etc.) for all previous regular season games
-#### seeds: 
-- historical data aligning teams to their respective tournament seed
-#### massey: 
-- historical data containing weekly rankings for all eligible tournament teams
-#### test_games: 
-- template for final output file with predictions for every possible game
-#### teams: 
-- maps team names to team ID's
+- tourney_games: historical results (winning score/losing score) for all previous tournament games
+- season_games: historical results (winning score/losing score) for all previous regular season games
+- tourney_games_detail: historical in-depth game statistics (field goal pct., 3 point pct., etc.) for all previous tournament games
+- season_games_detail: historical in-depth game statistics (field goal pct., 3 point pct., etc.) for all previous regular season games
+- seeds: historical data aligning teams to their respective tournament seed
+- massey: historical data containing weekly rankings for all eligible tournament teams
+- test_games: template for final output file with predictions for every possible game
+- teams: maps team names to team ID's
 
 ## Files
 
