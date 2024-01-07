@@ -14,19 +14,34 @@ I pulled in data from www.kaggle.com/competitions/march-machine-learning-mania-2
 - Average_score_diff: Average score difference in all previous matchups between two competing teams.
 - Percent_fg_diff: Difference in seasonal field goal percentage between teams at the time of their matchup.
 
-## Folders
-### Data
+### Model Selection
+I used GridSearchCV and Mean Squared Error as a loss metric on a Random Forest Regressor to determine the best blend of hyperparameters for regression.
 
-- tourney_games: historical results (winning score/losing score) for all previous tournament games
-- season_games: historical results (winning score/losing score) for all previous regular season games
-- tourney_games_detail: historical in-depth game statistics (field goal pct., 3 point pct., etc.) for all previous tournament games
-- season_games_detail: historical in-depth game statistics (field goal pct., 3 point pct., etc.) for all previous regular season games
-- seeds: historical data aligning teams to their respective tournament seed
-- massey: historical data containing weekly rankings for all eligible tournament teams
-- test_games: template for final output file with predictions for every possible game
-- teams: maps team names to team ID's
+Most effective hyperparameters:
+
+100 random trees in the forest
+2 features used in bootstrapping
+a minimum of 10 samples per leaf
+a minimum of 32 samples required ot split a tree
+
+## Observed Results
+As shown in the analysis tab of the March_Madness_2023.xlsx file, the Mean Average Error across all tournament games was 9.18 points. Considering the chaotic nature of the tournament, this is a very accurate result. My model chose UCLA to win the tournament; however, the model was unable to capture injuries prior to the tournament - UCLA's best player was injured the game before the tournament began - which can lead to inaccurate assumptions on team performance throughout the tournament. In future years, I will create a separate binary classifier using similar features to predict win probabilities instead of spread values. This should lead to better bracket performance.
+
+## Folders
+#### Data - folder containing the following files:
+- MNCAATourneyCompactResults: historical results (winning score/losing score) for all previous tournament games
+- MRegularSeasonCompactResults: historical results (winning score/losing score) for all previous regular season games
+- MNCAATourneyDetailedResults: historical in-depth game statistics (field goal pct., 3 point pct., etc.) for all previous tournament games
+- MRegularSeasonDetailedResults: historical in-depth game statistics (field goal pct., 3 point pct., etc.) for all previous regular season games
+- MNCAATourneySeeds: historical data aligning teams to their respective tournament seed
+- MMasseyOrdinals_thru_Season2023_Day128: historical data containing weekly rankings for all eligible tournament teams
+- SampleSubmission2023: template for final output file with predictions for every possible game
+- MTeams: maps team names to team ID's
 
 ## Files
+- March_Madness_2023.ipynb: Jupyter notebook containing all featuring engineering, model selection, and spread predicting code
+- submission2023.csv: Output of Jupyter notebook, contains spread predictions for every potential 2023 March Madness matchup
+- March_Madness_2023.xlsx: Contains the bracket created following submission2023.csv predictions and an analysis on model error in terms of point differentials
 
 ## References:
 <a id="ref1"></a> [1] Jeff Sonas, Maggie, Will Cukierski. (2023). March Machine Learning Mania 2023. Kaggle. https://kaggle.com/competitions/march-machine-learning-mania-2023. 
